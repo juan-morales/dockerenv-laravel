@@ -19,6 +19,19 @@ down:
 terminal-webserver:
 	$(sudo) docker-compose exec webserver bash
 
+terminal-database:
+	$(sudo) docker-compose exec database bash
+
+terminal-laravel:
+	$(sudo) docker-compose exec phpfpm bash
+
+install-docker:
+	$(sudo) chmod +x ./install_docker.sh
+	$(sudo) ./install_docker.sh
+
+add-current-user-to-docker:
+	$(sudo) sudo usermod -aG docker ${USER}
+
 #agregar usuario a docker
 #comandos artisan
 #comandos de estado de servicios

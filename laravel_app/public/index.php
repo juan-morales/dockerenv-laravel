@@ -1,3 +1,3 @@
 <?php
 
-echo "HOLA MANOLA";
+echo "SNOWTORM Manager";
