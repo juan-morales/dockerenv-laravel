@@ -1,0 +1,71 @@
+version: '3'
+
+networks:
+ snowstorm_network:
+
+services:
+  phpfpm:
+    build:
+      context: .
+      dockerfile: ./services/php-fpm/Dockerfile
+    tty: true
+    restart: always
+    volumes:
+      - ./laravel_app:/var/www
+    working_dir: /var/www
+    networks:
+      - snowstorm_network
+
+  database:
+    build:
+      context: .
+      dockerfile: ./services/database/Dockerfile
+    tty: true
+    restart: always
+    environment:
+      MYSQL_DATABASE: snowstorm_manager
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: laravel_user
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db/:/var/lib/mysql
+    networks:
+      - snowstorm_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    networks:
+      - snowstorm_network
+    depends_on: 
+      - database
+    environment: 
+      #MYSQL_ROOT_PASSWORD: password
+      #MYSQL_USER: user
+      #MYSQL_PASSWORD: password
+      - PMA_PORT=3306
+      - PMA_HOST=database
+      - PMA_ARBITRARY=1
+      - PMA_USER=laravel_user
+      - PMA_PASSWORD=laravel_user
+      - PMA_PORTS=3306
+    ports:
+      - "8080:80"
+
+  webserver:
+    build:
+      context: .
+      dockerfile: ./services/nginx/Dockerfile
+    restart: always
+    tty: true
+    depends_on:
+      - phpfpm
+    ports:
+      - "80:80"
+    volumes:
+      - ./services/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./services/nginx/index.html:/usr/share/nginx/html/index.html
+      - ./laravel_app:/var/www
+    working_dir: /var/www
+    networks:
+      - snowstorm_network
