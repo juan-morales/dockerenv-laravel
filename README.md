@@ -1,6 +1,6 @@
 # Entorno Docker SNOWSTORM MANAGER
 
-El presente entorno fue desarrollado para ejecutar la aplicacion en laravel **Snowstorm Manager.**
+El presente entorno fue desarrollado para ejecutar la aplicacion en laravel **Snowstorm Manager.**.
 
 ### Servicios disponibles
 - Laravel: 10
@@ -9,7 +9,48 @@ El presente entorno fue desarrollado para ejecutar la aplicacion en laravel **Sn
 - PHP-fpm: 8.1.19
 - PHPMyAdmin: latest
 
-## Instalacion
+### Accesos desde maquina host
+- Laravel: http://localhost
+- PHPMyAdmin: http://localhost:8080
+- MariaDB: Puerto 3306, la base de datos se llama "snowstorm_manager"
+
+## Requerimientos
+
+### Linux
+
+1. Instalar Git
+2. Ejecutar en un terminal
+```bash
+make install-docker
+```
+
+### Windows
+
+1. Instalar docker Desktop
+    - esta instalacion ya tiene docker-compose
+2. Instalar Git
+    - El instalador ofrecera instalar una terminal BASH, por favor instalar el terminal.
+3. Instalar Make
+    - Es necesario hacerlo madiante el gestor de paquetes __chocolatey__
+
+## Instalacion del proyecto
+1. Clonar el repositorio
+2. Ejecutar en un terminal dentro de el directorio del proyecto
+```bash
+make build
+```
+3. Ejecutar el entorno en modo interactivo, para ver que todos los servicios se ejecuten sin errores
+```bash
+make up-interactive
+```
+4. Bajar en entorno
+```bash
+make down
+```
+5. Volver a levantar el entorno en segundo plano
+```bash
+make up
+```
 
 ## Comandos MAKE
 
