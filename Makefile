@@ -26,8 +26,8 @@ terminal-laravel:
 	$(sudo) docker-compose exec phpfpm bash
 
 install-docker:
-	$(sudo) chmod +x ./install_docker.sh
-	$(sudo) ./install_docker.sh
+	@$(sudo) chmod +x ./install_docker.sh
+	@$(sudo) ./install_docker.sh
 
 add-current-user-to-docker:
 	$(sudo) sudo usermod -aG docker ${USER}
