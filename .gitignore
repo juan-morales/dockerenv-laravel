@@ -24,3 +24,6 @@ laravel_app/Homestead.yaml
 laravel_app/Homestead.json
 laravel_app/.vagrant
 laravel_app/.phpunit.result.cache
+
+laravel_app/composer.lock
+laravel_app/.git

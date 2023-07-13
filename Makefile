@@ -32,6 +32,9 @@ install-docker:
 add-current-user-to-docker:
 	$(sudo) sudo usermod -aG docker ${USER}
 
+install-laravel:
+	$(sudo) docker-compose exec phpfpm composer install
+
 #agregar usuario a docker
 #comandos artisan
 #comandos de estado de servicios
