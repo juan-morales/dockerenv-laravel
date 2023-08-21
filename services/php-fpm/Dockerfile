@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     zlib1g-dev \
     lsb-release \
+    net-tools \
     && apt-get clean \
     && rm -fr /var/lib/apt/lists/*
  

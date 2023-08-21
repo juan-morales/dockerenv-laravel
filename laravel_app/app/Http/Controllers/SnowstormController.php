@@ -12,7 +12,7 @@ class SnowstormController extends Controller
         try {
             $response = Http::withHeaders([
                 'Accept-Language' => 'es',
-            ])->get("http://snowtest.cepsi.gob.ar" . '/'. $rama .'/'. $concepto, $request->all());
+            ])->get("http://10.10.10.238" . '/'. $rama .'/'. $concepto, $request->all());
 
             $datos = $response->json();
             return response()->json($datos);
