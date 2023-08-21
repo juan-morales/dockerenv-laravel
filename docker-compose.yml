@@ -31,6 +31,8 @@ services:
       - ./db/:/var/lib/mysql
     networks:
       - snowstorm_network
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest

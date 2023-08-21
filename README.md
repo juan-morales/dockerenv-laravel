@@ -78,3 +78,19 @@ make <comando>
 **install-docker**: Ejecuta el script __install_docker.sh__ de este proyecto. Instala docker y docker-compose en entornos unix.
 
 **add-current-user-to-docker**: Agrega al usuario unix actual, al grupo de usuarios docker.
+
+# comando para crear cliente
+
+# comando para crear token
+
+# comando para eliminar token
+
+# comando para eliminar cliente
+
+# comando para listar clientes
+
+# comando para listar tokens
+
+# pasos (paso a paso) para actualizar snowstorm
+
+# limpiar vistas, caches, rutas del proyecto laravel
